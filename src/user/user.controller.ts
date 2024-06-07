@@ -1,4 +1,5 @@
-import { Controller, Get, Query, Post, Body, Put, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Query, Post, Body, Headers, Put, Param, Delete } from '@nestjs/common';
+
 import { UserService } from './user.service';
 import type { ResponseData } from '../responseData';
 
@@ -7,8 +8,8 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get()
-  getHello(): string {
-    return this.userService.getHello();
+  getUserInfo(@Headers()headers: any): ResponseData {
+    return this.userService.getUserInfo(headers.authorization);
   }
 
   @Post('login')

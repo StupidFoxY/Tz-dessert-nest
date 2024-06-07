@@ -3,8 +3,25 @@ import type { ResponseData } from '../responseData';
 
 @Injectable()
 export class UserService {
-  getHello(): string {
-    return 'Hello World!';
+  getUserInfo(token:string): ResponseData {
+    if(token == 'tzxka0620ttxka1029'){
+      return {
+        success: true,
+        message: '',
+        data: {
+          user:{
+            username:'lyy',
+            userType:'normal'
+          },
+        }
+      };
+    }else {
+      return {
+        success: false,
+        message: '不存在此用户',
+        data: null
+      };
+    }
   }
 
   login(request:any): ResponseData {
