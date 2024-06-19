@@ -11,4 +11,9 @@ export class SweetController {
   getSweetList(): ResponseData {
     return this.sweetService.getSweetList();
   }
+
+  @Post('detail')
+  getSweetDetail(@Body() request: any): ResponseData {
+    return this.sweetService.getSweetDetail(request);
+  }
 }
