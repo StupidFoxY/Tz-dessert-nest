@@ -16,4 +16,9 @@ export class UserController {
   login(@Body() request: any): ResponseData {
     return this.userService.login(request);
   }
+
+  @Get('address')
+  getAddress(@Headers()headers: any): ResponseData {
+    return this.userService.getAddress(headers.authorization);
+  }
 }
